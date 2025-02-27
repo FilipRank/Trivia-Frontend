@@ -1,0 +1,240 @@
+@media only screen and (max-width: 600px) {
+  form.question-form div.question-group {
+    flex-direction: column;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+footer.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: red;
+  padding: 0.2rem;
+  background-color: #c68bff;
+  color: white;
+  text-align: center;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+header.main-header {
+  background-color: #c68bff;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  margin: auto;
+  display: block;
+  box-shadow: 0 10px 10px rgb(255, 240, 240);
+}
+
+header.main-header div.content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+header.main-header button.burger-button {
+  background: none;
+  border: none;
+}
+
+header.main-header img.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+div.category-selector {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.category-selector img.logo {
+  padding-top: 20px;
+  width: 200px;
+  height: auto;
+}
+
+div.category-selector h2.title {
+  padding: 0px 20px 10px 20px;
+  border-bottom: 1px solid grey;
+}
+
+div.category-selector ul {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+div.category-selector li.item {
+  display: block;
+}
+
+div.category-selector li.item button.category-button {
+  font-size: 1.25rem;
+  min-width: 16rem;
+  min-height: 75px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 0 20px 2px grey, 
+  15px 15px 20px 0px rgb(255, 240, 220);
+}
+
+form.question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+}
+
+form.question-form div.answered-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+form.question-form div.answered-element div.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+form.question-form div.answered-element button {
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px 1px grey;
+  background-color: white;
+  border: none;
+  box-shadow: 0 0 20px 2px grey,
+  10px 10px 10px 0px lightblue;
+  padding: 0.4rem;
+  border-radius: 10px;
+}
+
+form.question-form div.answered-element button.try-again {
+  background: linear-gradient(156deg, deepskyblue, #17c090, #1723c0);
+  background-size: 180% 180%;
+}
+
+form.question-form div.answered-element button.try-again:hover {
+  animation: gradient-animation 3s ease infinite;
+}
+
+form.question-form div.answered-element button.return-home {
+  background-color: rgb(234, 208, 208);
+}
+form.question-form div.question {
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+  max-width: 600px;
+}
+
+form.question-form div.question-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+form.question-form div.question-group button.answer {
+  border: 1px solid rgb(210, 210, 210);
+  box-shadow: 0px 0px 10px 2px grey, 
+  10px 10px 10px 0px lightblue;
+  border-radius: 10px;
+  background-color: white;
+  min-width: 200px;
+  min-height: 50px;
+}
+
+button:hover {
+  animation: jiggle 0.5s ease 1;
+}
+
+.lds-hourglass,
+.lds-hourglass:after {
+  box-sizing: border-box;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
