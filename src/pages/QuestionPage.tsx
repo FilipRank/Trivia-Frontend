@@ -48,9 +48,11 @@ export default function QuestionPage() {
   })
 
   function checkAnswer(answer: string, ev: React.MouseEvent) {
+    ev.preventDefault()
+
+    if (hasAnswered) return
     setHasAnswered(true)
 
-    ev.preventDefault()
     if (answer === question?.correct_answer) {
       setAnswerElement(
         <div className='message'>You have answered correctly!</div>
@@ -96,7 +98,7 @@ export default function QuestionPage() {
           <div className='answered-element'>
             {answerElement}
             <div className="button-group">
-              <button className="return-home" onClick={(ev) => handleReturnHomeClick(ev)} >return home</button>
+              <button className="return-home" onClick={(ev) => handleReturnHomeClick(ev)}>return home</button>
               <button className="try-again">try a different question</button>
             </div>
           </div>

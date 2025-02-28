@@ -2,11 +2,13 @@ import { triviaCategories } from './services/CategoryService'
 import { Link } from 'react-router-dom'
 import MainHeader from './components/MainHeader'
 import MainFooter from './components/MainFooter'
+import Sidenav from './components/Sidenav'
 
 function App() {
   return (
     <>
     <MainHeader />
+    <Sidenav />
     <main className='homepage-main'>
       <div className="category-selector">
         <img className='logo' src='public/logo.svg' />
