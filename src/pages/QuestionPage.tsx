@@ -1,6 +1,6 @@
 import { triviaAPI }from '../services/TriviaService'
 import { useEffect, useState, useRef, JSX } from 'react'
-import { redirect, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Question from 'src/types/Question'
 import { getCategoryIdByName } from '../services/CategoryService'
 import MainFooter from '../components/MainFooter'
