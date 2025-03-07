@@ -35,6 +35,9 @@ export default function QuestionPage() {
       if (err.response.status === 429) {
         setTimeout(() => fetchQuestion(), 1000)
       }
+      else {
+        console.error(err)
+      }
     }) 
   }
 

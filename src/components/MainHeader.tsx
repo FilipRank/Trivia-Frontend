@@ -10,12 +10,12 @@ export default function MainHeader() {
   const hasFetched = useRef<boolean>(false)
 
   function fetchProfile() {
-    axios.get('http://localhost:4000/profile/', {withCredentials: true})
+    axios.get('http://localhost:4000/user/', {withCredentials: true})
     .then((res) => {
       setProfile(res.data.user)
     })
     .catch((err) => {
-      console.log(err)
+      console.error(err)
     })
   }
 

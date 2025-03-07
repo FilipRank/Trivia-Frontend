@@ -35,6 +35,80 @@ body {
   overflow-y: hidden;
 }
 
+main.login-page {
+  /* background-color: #833ab4; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main.login-page div.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main.login-page div.content a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+main.login-page div.content img.logo {
+  width: 400px;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 0 10px 0 black;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+main.login-page div.content a button.login-button {
+  border: none;
+  background-color: #cbdfe9;
+  min-width: 50vw;
+  color: black;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+main.login-page div.content a button.login-button img.github-logo {
+  border-radius: 50%;
+  width: 20px;
+
+}
+
+main.shop-page {
+  overflow: scroll;
+  height: 80vh;
+}
+
+main.shop-page ul.badges {
+  padding: 0;
+}
+
+main.shop-page ul.badges li.badge-item {
+  display: block;
+}
+
+main.shop-page ul.badges li.badge-item div.badge-card {
+  width: 300px;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+main.shop-page ul.badges li.badge-item img.badge-image {
+  width: 300px;
+  height: auto;
+}
+
 main.homepage-main {
   overflow: scroll;
   height: 90vh;
@@ -255,8 +329,8 @@ div.category-selector li.item button.category-button {
   min-height: 75px;
   background-color: var(--background);
   border: none;
-  box-shadow: 0 0 20px 2px grey, 
-  15px 15px 20px 0px rgb(255, 240, 220);
+  box-shadow: 0px 0px 10px 2px grey,
+    10px 10px 10px 0px lightblue;;
 }
 
 form.question-form {
