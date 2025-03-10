@@ -8,14 +8,12 @@ import BadgeCard from "../components/BadgeCard.js"
 
 export default function BadgesPage() {
   const hasFetched = useRef<Boolean>(false)
-  const [profile, setProfile] = useState<User | null>(null)
   const [badges, setBadges] = useState<Badge[] | null>(null)
 
   async function fetchBadges() {
     try {
       const resProfile = await axios.get('http://localhost:4000/user/', {withCredentials: true})
       const user: User = resProfile.data.user
-      setProfile(resProfile.data.user)
       const resBadges = await axios.get('http://localhost:4000/badges/')
       const filteredBadges = resBadges.data.filter((badge: Badge) => 
         user.purchasedBadgesIDs.includes(badge._id))

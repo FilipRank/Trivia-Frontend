@@ -4,11 +4,9 @@ import MainHeader from "../components/MainHeader"
 import Badge from "src/types/Badge"
 import axios from "axios"
 import BadgeCard from "../components/BadgeCard"
-import User from "src/types/User.js"
 
 export default function ShopPage() {
   const hasFetched = useRef<boolean>(false)
-  const [user, setUser] = useState<User | null>(null)
   const [badges, setBadges] = useState<Badge[] | null>(null)
 
 
@@ -26,7 +24,6 @@ export default function ShopPage() {
     try {
       const res = await axios.get('http://localhost:4000/user/',
         {withCredentials: true})
-        setUser(res.data.user)
       
       axios.get('http://localhost:4000/badges/',
         {withCredentials: true})
