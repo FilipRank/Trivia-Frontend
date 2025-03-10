@@ -1,13 +1,14 @@
 import Badge from "src/types/Badge";
 
-export default function BadgeCard({badge}: {badge: Badge}) {
+export default function BadgeCard({badge, onClick, bought}: {badge: Badge, onClick: React.MouseEventHandler<HTMLButtonElement>, bought: boolean}) {
   return (
     <div className="badge-card">
       <h3 className="badge-title">{badge.name}</h3>
-      <div className="price">{badge.price}</div>
-      <div className="value">{badge.value}</div>
+      <div className="value">Value: {badge.value}</div>
       <img className="badge-image" src={badge.imageUri} alt="badge-image" />
-      <div className="description">{badge.description}</div>
+      <button className="purchase-button" onClick={onClick}> 
+        {bought ? `${badge.description}` : `${badge.price} Purchase`}
+      </button>
     </div>
   )
 }

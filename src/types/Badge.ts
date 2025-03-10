@@ -1,4 +1,5 @@
 type Badge = {
+  _id: string,
   name: string,
   value: string,
   price: number,

@@ -5,6 +5,9 @@ export default function Sidenav() {
     <div className="sidenav-container">
       <nav className="sidenav-body">
         <ul className="options">
+          <li className="badges-item">
+            <Link to='/badges'>Badges</Link>
+          </li>
           <li className="settings-item">
             <Link to='/settings'>Settings</Link>
           </li>

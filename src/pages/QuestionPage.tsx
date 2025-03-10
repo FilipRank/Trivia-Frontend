@@ -5,6 +5,8 @@ import Question from 'src/types/Question'
 import { getCategoryIdByName } from '../services/CategoryService'
 import MainFooter from '../components/MainFooter'
 import MainHeader from '../components/MainHeader'
+import axios from 'axios'
+import BackButton from '../components/BackButton.js'
 
 export default function QuestionPage() {
   const [question, setQuestion] = useState<Question | null>(null)
@@ -57,6 +59,15 @@ export default function QuestionPage() {
     setHasAnswered(true)
 
     if (answer === question?.correct_answer) {
+      axios.patch('http://localhost:4000/user/increase-balance', {}, {
+        withCredentials: true,
+        params: {
+          amount: 5
+        }
+      })
+      .then((res) => {
+        console.log(res)
+      })
       setAnswerElement(
         <div className='message'>You have answered correctly!</div>
       )
@@ -81,7 +92,10 @@ export default function QuestionPage() {
         {
         question ?
         <>
-          <h2 dangerouslySetInnerHTML={{__html: question.category}}></h2>
+          <div className="header-back-button">
+            <BackButton />
+            <h2 dangerouslySetInnerHTML={{__html: question.category}}></h2>
+          </div>
           <div className='question' dangerouslySetInnerHTML={{ __html: question.question || 'loading...'}}></div>
         </>
             : <div className="lds-hourglass"></div>

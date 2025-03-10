@@ -31,7 +31,9 @@ export default function MainHeader() {
     <header className='main-header'>
       <div className='content'>
         <div className="left-group">
+          <Link to='/'>
           <img className="profile-picture" src={profile?.imageUrl ?? 'https://cdn.pixabay.com/photo/2013/08/31/18/13/flower-177889_640.jpgs'} alt="profile picture" />
+          </Link>
           <div className="username-balance">
             <div className="username">{profile?.username}</div>
             <div className="balance">{profile?.balance}</div>
@@ -42,11 +44,14 @@ export default function MainHeader() {
         </button>
         <nav className="header-navigation">
           <ul>
+            <li className="badges-item">
+              <Link to='/badges'>Badges</Link>
+            </li>
             <li className="setting-item">
               <Link to='/settings'>Settings</Link>
             </li>
             <li className="shop-item">
-              <Link to='shop'>Shop</Link>
+              <Link to='/shop'>Shop</Link>
             </li>
           </ul>
         </nav>

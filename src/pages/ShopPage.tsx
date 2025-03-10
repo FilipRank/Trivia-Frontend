@@ -4,20 +4,47 @@ import MainHeader from "../components/MainHeader"
 import Badge from "src/types/Badge"
 import axios from "axios"
 import BadgeCard from "../components/BadgeCard"
+import User from "src/types/User.js"
 
 export default function ShopPage() {
   const hasFetched = useRef<boolean>(false)
+  const [user, setUser] = useState<User | null>(null)
   const [badges, setBadges] = useState<Badge[] | null>(null)
 
 
-  function fetchBadges() {
-    axios.get('http://localhost:4000/badges/', {withCredentials: true})
-    .then(res => {
-      setBadges(res.data)
+  async function handlePurchaseClick(badgeId: string) {
+    console.log(badgeId)
+    await axios.patch('http://localhost:4000/user/add-badge/', {}, {
+      params: {
+        id: badgeId
+      },
+      withCredentials: true
     })
-    .catch(err => {
+  }
+
+  async function fetchBadges() {
+    try {
+      const res = await axios.get('http://localhost:4000/user/',
+        {withCredentials: true})
+        setUser(res.data.user)
+      
+      axios.get('http://localhost:4000/badges/',
+        {withCredentials: true})
+      .then(resp => {
+        const filtered = resp.data.filter((badge: Badge) => 
+          !res.data.user.purchasedBadgesIDs.includes(badge._id))
+        setBadges(filtered)
+        console.log(res.data.user)
+        console.log(resp.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    }
+    catch (err) {
       console.error(err)
-    })
+    }
+
   }
 
   useEffect(() => {
@@ -35,7 +62,7 @@ export default function ShopPage() {
       <ul className="badges">
         {badges?.map(badge => 
           <li className="badge-item" key={badge.name}>
-            <BadgeCard badge={badge} />
+            <BadgeCard badge={badge} onClick={() => {handlePurchaseClick(badge._id)}} bought={false}/>
           </li>
         )}
       </ul>
