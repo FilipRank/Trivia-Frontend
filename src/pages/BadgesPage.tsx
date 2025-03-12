@@ -5,6 +5,7 @@ import MainHeader from "../components/MainHeader.js"
 import Badge from "src/types/Badge"
 import User from "src/types/User"
 import BadgeCard from "../components/BadgeCard.js"
+import BackButton from "../components/BackButton.js"
 
 export default function BadgesPage() {
   const hasFetched = useRef<Boolean>(false)
@@ -35,6 +36,10 @@ export default function BadgesPage() {
     <>
     <MainHeader />
     <main className="badges-page">
+      <div className="header-back-button">
+        <BackButton />
+        <h2>Your Badges</h2>
+      </div>
       <ul className="badges">
         {badges && badges.map((badge: Badge) => 
           <li className="badge-item">

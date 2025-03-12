@@ -4,6 +4,7 @@ import MainHeader from "../components/MainHeader"
 import Badge from "src/types/Badge"
 import axios from "axios"
 import BadgeCard from "../components/BadgeCard"
+import BackButton from "../components/BackButton"
 
 export default function ShopPage() {
   const hasFetched = useRef<boolean>(false)
@@ -55,7 +56,10 @@ export default function ShopPage() {
     <>
     <MainHeader />
     <main className="shop-page">
-      <h2 className="title">Purchase badges</h2>
+      <div className="header-back-button">
+        <BackButton />
+        <h2 className="title">Purchase badges</h2>
+      </div>
       <ul className="badges">
         {badges?.map(badge => 
           <li className="badge-item" key={badge.name}>
