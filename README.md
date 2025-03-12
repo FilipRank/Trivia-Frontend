@@ -1,6 +1,6 @@
 # Trivia Game Project
 
-This is a full-stack web application where users can play trivia games to earn coins and purchase badges. The application features GitHub authentication, allowing users to log in with their GitHub accounts. Users can test their knowledge through trivia questions while earning virtual currency, which they can then spend on collecting various badges.
+This is a full-stack web application where users can play trivia games to earn coins and purchase badges. The application features GitHub authentication, allowing users to log in with their GitHub accounts. Users can test their knowledge through trivia questions while earning virtual currency, which they can then spend on collecting various badges. The link to the back-end can be found on https://github.com/FilipRank/Trivia-Backend
 
 ## 0. Installation
 
