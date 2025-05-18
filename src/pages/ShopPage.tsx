@@ -13,7 +13,7 @@ export default function ShopPage() {
 
   async function handlePurchaseClick(badgeId: string) {
     console.log(badgeId)
-    await axios.patch('http://localhost:4000/user/add-badge/', {}, {
+    await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/user/add-badge/`, {}, {
       params: {
         id: badgeId
       },
@@ -23,10 +23,10 @@ export default function ShopPage() {
 
   async function fetchBadges() {
     try {
-      const res = await axios.get('http://localhost:4000/user/',
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/`,
         {withCredentials: true})
       
-      axios.get('http://localhost:4000/badges/',
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/badges/`,
         {withCredentials: true})
       .then(resp => {
         const filtered = resp.data.filter((badge: Badge) => 

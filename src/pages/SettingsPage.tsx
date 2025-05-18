@@ -15,7 +15,7 @@ export default function SettingsPage() {
 
 
   function fetchProfile() {
-    axios.get('http://localhost:4000/user/', { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/`, { withCredentials: true })
       .then((res) => {
         setProfile(res.data.user)
       })
@@ -34,7 +34,7 @@ export default function SettingsPage() {
   async function handleChangeClick(ev: React.MouseEvent) {
     ev.preventDefault()
     try {
-      await axios.patch('http://localhost:4000/user/', {
+      await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/user/`, {
         username: newUsername
       }, {withCredentials: true})
     }
@@ -46,7 +46,7 @@ export default function SettingsPage() {
   async function handleLogoutClick(ev: React.MouseEvent) {
     ev.preventDefault()
     try {
-      const res = await axios.post('http://localhost:4000/auth/logout', {}, 
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/logout`, {}, 
         {withCredentials: true})
       if (res.status == 200) {
         navigate('/login')

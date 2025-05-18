@@ -13,9 +13,9 @@ export default function BadgesPage() {
 
   async function fetchBadges() {
     try {
-      const resProfile = await axios.get('http://localhost:4000/user/', {withCredentials: true})
+      const resProfile = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/`, {withCredentials: true})
       const user: User = resProfile.data.user
-      const resBadges = await axios.get('http://localhost:4000/badges/')
+      const resBadges = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/badges/`)
       const filteredBadges = resBadges.data.filter((badge: Badge) => 
         user.purchasedBadgesIDs.includes(badge._id))
       setBadges(filteredBadges)

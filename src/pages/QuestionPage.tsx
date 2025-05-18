@@ -59,7 +59,7 @@ export default function QuestionPage() {
     setHasAnswered(true)
 
     if (answer === question?.correct_answer) {
-      axios.patch('http://localhost:4000/user/increase-balance', {}, {
+      axios.patch(`${import.meta.env.VITE_BACKEND_URL}/user/increase-balance`, {}, {
         withCredentials: true,
         params: {
           amount: 5
